@@ -3,14 +3,14 @@ A simple Docker Compose project that runs WordPress and a MariaDB database as a 
 
 
 ## Table of contents
-1. [Requirements](#requirements)
+1. [Prerequisites](#prerequisites)
 2. [Quickstart](#quickstart)
 3. [Project Structure](#project-structure)
 4. [Usage](#usage)
 5. [Docker commands](#docker-commands)
 
 
-## Requirements
+## Prerequisites
 Before running this project, ensure you have:
 
 - **Docker** installed  
@@ -41,7 +41,7 @@ docker compose up -d
 
 Access this URL and create your account:
 ```
-localhost:8000
+<YOUR_IP>:8000
 ```
 
 
@@ -61,7 +61,7 @@ For this purpose, the docker-compose.yml file was created and configured.
 > The first service creates an image for WordPress that I install with the latest version.
 ```yml
 wordpress:
-    image: wordpress:latest # Use the latest WordPress image
+    image: wordpress:6-php8.4-apache 
     restart: on-failure:5 # Restart the container automatically on failure, up to 5 times
     depends_on: # Ensure the database starts before WordPress
       - db
